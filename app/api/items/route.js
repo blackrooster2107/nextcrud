@@ -11,7 +11,7 @@ export async function POST(request){
 
 export async function GET(){
     await connectMongoDb()
-    const items = await Item.find()
+    const items = await Item.find().sort({updatedAt: -1})
     return NextResponse.json({items})
 }
 
